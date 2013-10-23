@@ -4,5 +4,14 @@
     <string name="app_name">CandleKeep</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="txtIsbn">ISBN</string>
+    <string name="txtTitulo">Title</string>
+    <string name="txtPubDate">Publication Date</string>
+    <string name="txtPages">Pages</string>
+    <string name="txtBtnNvoLibro">New</string>
+    <string name="txtEdtLibro">Edit</string>
+    <string name="txtElmLibro">Delete</string>
+    <string name="txtAutores">Authors</string>
+    <string name="txtCategorias">Categories</string>
 
 </resources>
