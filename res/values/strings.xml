@@ -13,13 +13,5 @@
     <string name="txtElmLibro">Delete</string>
     <string name="txtAutores">Authors</string>
     <string name="txtCategorias">Categories</string>
-    <string name="title_activity_editar_libro">EditarLibroActivity</string>
-    <string name="btnGuardar">Save</string>
-    <string name="btnCancel">Cancel</string>
-    <string name="strErrorISBN">You must set a ISBN for the book.</string>
-    <string name="strErrorTitulo">You must set a title for the book.</string>
-    <string name="strErrorFechaPublicacion">You must set a publish date for the book.</string>
-    <string name="strErrorCantPaginas">You must set page count for the book.</string>
-    <string name="strErrorSelLibro">You must select a book for edition.</string>
-    
+
 </resources>
