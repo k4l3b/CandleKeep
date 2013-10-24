@@ -14,6 +14,7 @@ import com.boondocksaints.candlekeep.data.CandleKeepDAO;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Application;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -60,20 +61,29 @@ public class MainActivity extends Activity {
 	
 	private void asignarListeners(){
 		this.btnNuevoLibro.setOnClickListener(new View.OnClickListener() {
-			//TODO: Deberia llamar a una nueva actividad en blanco para cargar un nuevo libro
+			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "Nuevo libro", Toast.LENGTH_SHORT).show();		
+				// abro el activity para alta de nuevo libro
+				Intent intento = new Intent(MainActivity.this, EditarLibroActivity.class);
+				startActivity(intento);
 			}
 		} );
 		
 		this.btnEdtLibro.setOnClickListener(new View.OnClickListener() {
-			//TODO: Deberia de traer un nuevo activity con los datos de un libro
+			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "Editar Libro", Toast.LENGTH_SHORT).show();		
+				// valdo que haya algo seleccionado
+				if (spnLibros.getSelectedItemPosition() != Spinner.INVALID_POSITION)
+				{
+					// abro el activity para edicion
+					Intent intento = new Intent(MainActivity.this, EditarLibroActivity.class);
+					intento.putExtra("isbn", libros.get(spnLibros.getSelectedItemPosition()).getISBN());
+					startActivity(intento);
+				}
+				else
+					Toast.makeText(MainActivity.this, getString(R.string.strErrorSelLibro), Toast.LENGTH_SHORT).show();
 			}
 		} );
 
