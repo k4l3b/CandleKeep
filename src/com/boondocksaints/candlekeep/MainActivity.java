@@ -10,8 +10,10 @@ import com.boondocksaints.candlekeep.data.CandleKeepDAO;
 
 
 
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.Application;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -88,7 +91,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemSelected(AdapterView<?> adapterView, View view,
 					int position, long id) {
-				Libro l = libros.get(position);
+				Libro l = dao.obtenerLibroPorISBN(libros.get(position).getISBN(), true);
 				etxIsbn.setText(l.getISBN());
 				etxTitulo.setText(l.getTitulo());
 				etxCantHojas.setText(l.getCantidadPaginas().toString()); 
@@ -103,7 +106,9 @@ public class MainActivity extends Activity {
 					
 				}
 				
-				ArrayAdapter<String> adaptador_autores = new ArrayAdapter<String>(getApplicationContext(),						
+				 
+				
+				ArrayAdapter<String> adaptador_autores = new ArrayAdapter<String>(MainActivity.this,						
 						android.R.layout.simple_list_item_1,listaAutores);
 
 				lvwAutores.setAdapter(adaptador_autores);
@@ -125,7 +130,7 @@ public class MainActivity extends Activity {
 	private void cargarLibros()
 	{
 		List<String> listaLibros = new ArrayList<String>();
-		this.libros = dao.obtenerLibros();
+		this.libros = dao.obtenerLibros(false);// obtengo solo la cabecera para el spinner
 		
 		for (Libro libro : this.libros) {
 			listaLibros.add(libro.getTitulo());
