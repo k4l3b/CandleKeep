@@ -26,9 +26,9 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f080011;
-        public static final int button1=0x7f08000e;
-        public static final int button2=0x7f08000f;
-        public static final int button3=0x7f080010;
+        public static final int btnBrrLibro=0x7f080010;
+        public static final int btnEdtLibro=0x7f08000f;
+        public static final int btnNvoLibro=0x7f08000e;
         public static final int etxCantHojas=0x7f080009;
         public static final int etxIsbn=0x7f080002;
         public static final int etxPubDate=0x7f080007;
