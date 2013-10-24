@@ -121,21 +121,116 @@ public class CandleKeepDAO extends SQLiteOpenHelper {
 		return categorias;
 	}
 	
+	public Categoria guardarCategoria(Categoria unaCategoria)
+	{
+		Categoria aux = this.obtenerCategoriaPorId(unaCategoria.getIdCategoria());
+		String query = "";
+		
+		if (aux == null)
+		{
+			// Hago un insert
+			query = String.format("insert into CATEGORIAS (ID_CATEG, DESCRIPCION) values ('%s','%s')", 
+					unaCategoria.getIdCategoria(), unaCategoria.getDescripcion());
+		}
+		else
+		{
+			// Hago un update 
+			query = String.format("update CATEGORIAS set DESCRIPCION='%s' where ID_CATEG='%s'", 
+					unaCategoria.getDescripcion(), unaCategoria.getIdCategoria());
+		}
+		
+		this.ejecutarNoQuery(query);
+		
+		return unaCategoria;
+	}
+	
+	public Categoria eliminarCategoria(Categoria unaCategoria)
+	{
+		this.ejecutarNoQuery(String.format("delete from CATEGORIAS where ID_CATEG='%s'", 
+				unaCategoria.getIdCategoria()));
+		
+		return unaCategoria;
+		
+	}
+	
+	public void guardarCategoriasPorLibro(String isbn, List<Categoria> categorias)
+	{
+		// primero borro todas las categorias asociadas al libro
+		this.ejecutarNoQuery(String.format("delete from CATEGORIAS_POR_LIBRO where ISBN='%s'", isbn));
+		
+		// ahora agrego a la tabla de categorias las que me falten (tambien actualizo las existentes)
+		for (Categoria categoria : categorias) {
+			this.guardarCategoria(categoria); // la guardo si no existe, o la actualizo si ya existe
+			
+			// agrego la referencia de la categoria al libro
+			this.ejecutarNoQuery(String.format("insert into CATEGORIAS_POR_LIBRO (ISBN, ID_CATEG) values ('%s','%s')",  
+					isbn, categoria.getIdCategoria()));
+		}
+		
+	}
+	
 	public List<Libro> obtenerLibros()
 	{
 		List<Libro> libros = new ArrayList<Libro>();
 		
-		Cursor rs = this.ejecutarQuery("select ISBN, TITULO, FECHA_PUBLICACION, CANT_HOJAS from LIBROS");
+		Cursor rs = this.ejecutarQuery("select ISBN, TITULO, FECHA_PUBLICACION, CANT_HOJAS from LIBROS order by TITULO");
 		
 		while (rs.moveToNext())
 		{
-			libros.add(new Libro(rs.getString(0), rs.getString(1), rs.getString(2), rs.getInt(3), new ArrayList<Autor>(), new ArrayList<Categoria>())); 
+			// TODO: hay que llenar el array de autores por libro
+			List<Categoria> categorias = this.obtenerCategoriasPorLibro(rs.getString(0));
+			libros.add(new Libro(rs.getString(0), rs.getString(1), rs.getString(2), rs.getInt(3), new ArrayList<Autor>(), categorias)); 
 		}
 		
 		rs.close();
 		
 		return libros;
 	}
-	
+
+	public Libro obtenerLibroPorISBN(String isbn)
+	{
+		Libro unLibro = null;
+		
+		Cursor rs = this.ejecutarQuery(String.format("select ISBN, TITULO, FECHA_PUBLICACION, CANT_HOJAS from LIBROS where ISBN='%s'", 
+				isbn));
+		
+		if (rs.moveToNext())
+		{
+			List<Categoria> categorias = this.obtenerCategoriasPorLibro(isbn);
+			List<Autor> autores = new ArrayList<Autor>(); // TODO: falta obtener los autores
+			
+			unLibro = new Libro(rs.getString(0), rs.getString(1), rs.getString(2), rs.getInt(3), autores, categorias); 
+		}
+		
+		rs.close();
+		
+		return unLibro;
+	}
+
+	public Libro guardarLibro(Libro unLibro)
+	{
+		Libro aux = this.obtenerLibroPorISBN(unLibro.getISBN());
+		String query = "";
+		
+		if (aux == null)
+		{
+			// Hago un insert
+			query = String.format("insert into LIBROS (ISBN, TITULO, FECHA_PUBLICACION, CANT_HOJAS) values ('%s','%s', '%s', %d)", 
+					unLibro.getISBN(), unLibro.getTitulo(), unLibro.getFechaPublicacion(), unLibro.getCantidadDeHojas());
+		}
+		else
+		{
+			// Hago un update 
+			query = String.format("update LIBROS set TITULO='%s', FECHA_PUBLICACION='%s', CANT_HOJAS=%d where ISBN='%s'", 
+					unLibro.getTitulo(), unLibro.getFechaPublicacion(), unLibro.getCantidadDeHojas(), unLibro.getISBN());
+		}
+		
+		this.ejecutarNoQuery(query);
+		
+		// TODO: falta guardar los autores
+		this.guardarCategoriasPorLibro(unLibro.getISBN(), unLibro.getCategorias());
+		
+		return unLibro;
+	}
 	
 }
