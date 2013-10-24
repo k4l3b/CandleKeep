@@ -435,4 +435,21 @@ public class CandleKeepDAO extends SQLiteOpenHelper {
 		return unLibro;
 	}
 	
+	public Libro eliminarLibro(Libro unLibro)
+	{
+		if (unLibro != null)
+		{
+			SQLiteDatabase db = getWritableDatabase();
+			db.execSQL(String.format("delete from CATEGORIAS_POR_LIBRO where ISBN='%s'", 
+					unLibro.getISBN()));
+			db.execSQL(String.format("delete from AUTORES_POR_LIBRO where ISBN='%s'", 
+					unLibro.getISBN()));
+			db.execSQL(String.format("delete from LIBROS where ISBN='%s'", 
+					unLibro.getISBN()));
+			db.close();
+		}
+		return unLibro;
+
+	}
+	
 }

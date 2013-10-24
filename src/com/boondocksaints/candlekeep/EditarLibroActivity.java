@@ -122,6 +122,12 @@ public class EditarLibroActivity extends Activity {
 		// si el libro esta bien, lo guardo y cierro el activity
 		if (this.validarLibro())
 		{
+			this.libro.setISBN(this.etxIsbn.getText().toString());
+			this.libro.setTitulo(this.etxTitulo.getText().toString());
+			this.libro.setCantidadPaginas(Integer.parseInt(this.etxCantHojas.getText().toString()));
+			this.libro.setFechaPublicacion(this.etxPubDate.getText().toString());
+			// TODO: falta guardar las categorias y los autores
+			
 			this.dao.guardarLibro(this.libro);
 			finish();
 		}
@@ -136,6 +142,8 @@ public class EditarLibroActivity extends Activity {
 		this.obtenerInstancias();
 		this.asignarListeners();
 		this.obtenerLibroAEditar();
+		
+		//this.dao.eliminarLibro(this.libro);
 	}
 
 	@Override
