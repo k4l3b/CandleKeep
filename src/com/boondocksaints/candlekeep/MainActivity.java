@@ -88,11 +88,17 @@ public class MainActivity extends Activity {
 		} );
 
 		this.btnBrrLibro.setOnClickListener(new View.OnClickListener() {
-			//TODO: Deberia eliminar un libro
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "Eliminar Libro", Toast.LENGTH_SHORT).show();		
+				//Falta confirmacion
+				// valido que haya algo seleccionado
+				if (spnLibros.getSelectedItemPosition() != Spinner.INVALID_POSITION)
+				{
+					dao.eliminarLibro(libros.get(spnLibros.getSelectedItemPosition()));
+					cargarLibros();
+				}
+				else
+					Toast.makeText(MainActivity.this, getString(R.string.strErrorSelLibro), Toast.LENGTH_SHORT).show();
 			}
 		} );
 		
@@ -137,6 +143,8 @@ public class MainActivity extends Activity {
 
 	}
 	
+
+	
 	private void cargarLibros()
 	{
 		List<String> listaLibros = new ArrayList<String>();
@@ -180,6 +188,12 @@ public class MainActivity extends Activity {
 		
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		cargarLibros();
+	};
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
