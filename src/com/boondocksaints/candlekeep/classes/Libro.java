@@ -16,7 +16,7 @@ public class Libro {
 	private String isbn;
 	private String titulo;
 	private String fechaPublicacion;
-	private Integer cantidadDeHojas;
+	private Integer cantidadPaginas;
 	private List<Autor> autores;
 	private List<Categoria> categorias;
 	
@@ -44,12 +44,12 @@ public class Libro {
 		this.fechaPublicacion = fechaPublicacion;
 	}
 
-	public Integer getCantidadDeHojas() {
-		return cantidadDeHojas;
+	public Integer getCantidadPaginas() {
+		return cantidadPaginas;
 	}
 
-	public void setCantidadDeHojas(Integer cantidadDeHojas) {
-		this.cantidadDeHojas = cantidadDeHojas;
+	public void setCantidadPaginas(Integer cantidadPaginas) {
+		this.cantidadPaginas = cantidadPaginas;
 	}
 
 	public List<Autor> getAutores() {
@@ -75,7 +75,7 @@ public class Libro {
 		this.isbn = "";
 		this.titulo = "";
 		this.fechaPublicacion = "";
-		this.cantidadDeHojas = 0;
+		this.cantidadPaginas = 0;
 		this.autores = new ArrayList<Autor>();
 		this.categorias = new ArrayList<Categoria>();
 	}
@@ -87,7 +87,7 @@ public class Libro {
 		this.isbn = isbn;
 		this.titulo = titulo;
 		this.fechaPublicacion = fechaPublicacion;
-		this.cantidadDeHojas = cantidadDeHojas;
+		this.cantidadPaginas = cantidadDeHojas;
 		this.autores = autores;
 		this.categorias = categorias;
 	}
