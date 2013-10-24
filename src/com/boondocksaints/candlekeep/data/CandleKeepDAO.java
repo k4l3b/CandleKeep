@@ -344,6 +344,11 @@ public class CandleKeepDAO extends SQLiteOpenHelper {
 	
 	public List<Libro> obtenerLibros()
 	{
+		return this.obtenerLibros(true); // por defecto devuelve todo el detalle
+	}
+	
+	public List<Libro> obtenerLibros(Boolean conDetalle)
+	{
 		List<Libro> libros = new ArrayList<Libro>();
 		
 		// Levanto todos los libros
@@ -351,21 +356,29 @@ public class CandleKeepDAO extends SQLiteOpenHelper {
 		Cursor rs = db.rawQuery("select ISBN, TITULO, FECHA_PUBLICACION, CANT_PAGINAS from LIBROS order by TITULO", null);
 		
 		while (rs.moveToNext())
-			libros.add(new Libro(rs.getString(0), rs.getString(1), rs.getString(2), rs.getInt(3), null, null)); 
+			libros.add(new Libro(rs.getString(0), rs.getString(1), rs.getString(2), rs.getInt(3), 
+					new ArrayList<Autor>(), 
+					new ArrayList<Categoria>())); 
 		
 		rs.close();
 		db.close();
 		
 		// Por cada libro, leo sus autores y categorias
-		for (Libro libro : libros) {
-			libro.setCategorias(this.obtenerCategoriasPorLibro(libro.getISBN()));
-			libro.setAutores(this.obtenerAutoresPorLibro(libro.getISBN())); 
-		}
+		if (conDetalle)
+			for (Libro libro : libros) {
+				libro.setCategorias(this.obtenerCategoriasPorLibro(libro.getISBN()));
+				libro.setAutores(this.obtenerAutoresPorLibro(libro.getISBN())); 
+			}
 
 		return libros;
 	}
 
 	public Libro obtenerLibroPorISBN(String isbn)
+	{
+		return this.obtenerLibroPorISBN(isbn, true); // por defecto con detalle
+	}
+
+	public Libro obtenerLibroPorISBN(String isbn, Boolean conDetalle)
 	{
 		Libro unLibro = null;
 		
@@ -374,17 +387,20 @@ public class CandleKeepDAO extends SQLiteOpenHelper {
 				isbn), null);
 		
 		if (rs.moveToNext())
-			unLibro = new Libro(rs.getString(0), rs.getString(1), rs.getString(2), rs.getInt(3), null, null); 
+			unLibro = new Libro(rs.getString(0), rs.getString(1), rs.getString(2), rs.getInt(3), 
+					new ArrayList<Autor>(), 
+					new ArrayList<Categoria>()); 
 		
 		rs.close();
 		db.close();
 		
 		// completo categorias y autores
-		if (unLibro != null)
-		{
-			unLibro.setCategorias(this.obtenerCategoriasPorLibro(isbn));
-			unLibro.setAutores(this.obtenerAutoresPorLibro(isbn));
-		}
+		if (conDetalle)
+			if (unLibro != null)
+			{
+				unLibro.setCategorias(this.obtenerCategoriasPorLibro(isbn));
+				unLibro.setAutores(this.obtenerAutoresPorLibro(isbn));
+			}
 		
 		return unLibro;
 	}
