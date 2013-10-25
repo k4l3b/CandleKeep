@@ -334,6 +334,7 @@ public class CandleKeepDAO extends SQLiteOpenHelper {
 		// ahora agrego a la tabla de autores los que me falten (tambien actualizo los existentes)
 		for (Autor autor : autores) {
 			autorAux = this.guardarAutor(autor); // lo guardo si no existe, o lo actualizo si ya existe
+			autor.setIdAutor(autorAux.getIdAutor()); // fix del autor
 			
 			// agrego la referencia del autor al libro
 			db = getWritableDatabase();
