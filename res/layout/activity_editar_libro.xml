@@ -37,7 +37,7 @@
         android:id="@+id/editarLibro_etxIsbn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editarLibro_lblIsbn"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/editarLibro_lblIsbn"
         android:layout_weight="1"
@@ -47,7 +47,7 @@
         android:id="@+id/editarLibro_textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editarLibro_etxTitulo"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/editarLibro_etxIsbn"
         android:text="@string/txtTitulo"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -56,50 +56,52 @@
         android:id="@+id/editarLibro_etxTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editarLibro_etxPubDate"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/editarLibro_textView2"
         android:layout_weight="1"
         android:ems="10" />
 
+
     <TextView
-        android:id="@+id/editarLibro_textView4"
+        android:id="@+id/editarLibro_textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editarLibro_etxPubDate"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/editarLibro_etxTitulo"
-        android:text="@string/txtPages"
+        android:text="@string/txtPubDate"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
         android:id="@+id/editarLibro_etxPubDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editarLibro_textView3"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editarLibro_textView4"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="date" />
-
-    <TextView
-        android:id="@+id/editarLibro_textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editarLibro_etxCantHojas"
-        android:layout_below="@+id/editarLibro_etxPubDate"
-        android:text="@string/txtPubDate"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/editarLibro_etxCantHojas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editarLibro_etxIsbn"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/editarLibro_textView3"
         android:layout_weight="1"
         android:ems="10"
+        android:inputType="date" />
+    
+    <TextView
+        android:id="@+id/editarLibro_textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editarLibro_etxPubDate"
+        android:text="@string/txtPages"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <EditText
+        android:id="@+id/editarLibro_etxCantHojas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editarLibro_textView4"
+        android:layout_weight="1"
+        android:ems="10"
         android:inputType="number" />
+
 
 </RelativeLayout>

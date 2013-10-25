@@ -329,14 +329,16 @@ public class CandleKeepDAO extends SQLiteOpenHelper {
 		db.execSQL(String.format("delete from AUTORES_POR_LIBRO where ISBN='%s'", isbn));
 		db.close();
 		
+		Autor autorAux; // para capturar los id de los autores nuevos
+		
 		// ahora agrego a la tabla de autores los que me falten (tambien actualizo los existentes)
 		for (Autor autor : autores) {
-			this.guardarAutor(autor); // lo guardo si no existe, o lo actualizo si ya existe
+			autorAux = this.guardarAutor(autor); // lo guardo si no existe, o lo actualizo si ya existe
 			
 			// agrego la referencia del autor al libro
 			db = getWritableDatabase();
 			db.execSQL(String.format("insert into AUTORES_POR_LIBRO (ISBN, ID_AUTOR) values ('%s',%d)",  
-					isbn, autor.getIdAutor()));
+					isbn, autorAux.getIdAutor()));
 			db.close();
 		}
 	}
