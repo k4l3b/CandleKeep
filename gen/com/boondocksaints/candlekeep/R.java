@@ -34,12 +34,12 @@ public final class R {
         public static final int editarLibro_buttonGuardar=0x7f080000;
         public static final int editarLibro_etxCantHojas=0x7f080009;
         public static final int editarLibro_etxIsbn=0x7f080003;
-        public static final int editarLibro_etxPubDate=0x7f080006;
+        public static final int editarLibro_etxPubDate=0x7f080007;
         public static final int editarLibro_etxTitulo=0x7f080005;
         public static final int editarLibro_lblIsbn=0x7f080002;
         public static final int editarLibro_textView2=0x7f080004;
-        public static final int editarLibro_textView3=0x7f080008;
-        public static final int editarLibro_textView4=0x7f080007;
+        public static final int editarLibro_textView3=0x7f080006;
+        public static final int editarLibro_textView4=0x7f080008;
         public static final int etxCantHojas=0x7f080014;
         public static final int etxIsbn=0x7f08000d;
         public static final int etxPubDate=0x7f080012;

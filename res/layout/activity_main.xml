@@ -122,7 +122,7 @@
                     android:id="@+id/lvwAutores"
                     style="@style/AppBaseTheme"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:scrollbars="vertical"
                     tools:listitem="@android:layout/simple_list_item_1" >

@@ -11,19 +11,19 @@ import com.boondocksaints.candlekeep.data.CandleKeepDAO;
 
 
 
+
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.Application;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -154,6 +154,11 @@ public class MainActivity extends Activity {
 			listaLibros.add(libro.getTitulo());
 			
 		}
+		LayoutParams param = new LayoutParams(lvwAutores.getLayoutParams().width, 
+				150 * libros.size());
+		lvwAutores.setLayoutParams(param);
+		
+		 
 		ArrayAdapter<String> adaptador_libros = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listaLibros);	        
 		adaptador_libros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnLibros.setAdapter(adaptador_libros);
@@ -164,12 +169,16 @@ public class MainActivity extends Activity {
 	{
 
 	     Libro libro = new Libro();
-	     libro.setISBN("987-1347-11-4");
-	     libro.setTitulo("Web Services con C# v4.0");
-	     libro.setFechaPublicacion("2013-05-01");
-	     libro.setCantidadPaginas(453);
-	     libro.getCategorias().add(new Categoria("Inf","Informática")); 
-	     libro.getCategorias().add(new Categoria("Tec","Tecnología")); 
+	     libro.setISBN("987-1347-11-124");
+	     libro.setTitulo("La vida de Peron");
+	     libro.setFechaPublicacion("2013-05-11");
+	     libro.setCantidadPaginas(15);
+	     libro.getCategorias().add(new Categoria("His","Historia")); 
+	     libro.getCategorias().add(new Categoria("Bif","Biografia"));
+	     libro.getAutores().add(new Autor(-1, "Juan Domingo"));
+	     libro.getAutores().add(new Autor(-1, "John Sunday"));
+	     libro.getAutores().add(new Autor(-1, "Juancito Feriado"));
+	     libro.getAutores().add(new Autor(-1, "Big Chin"));
 	     
 	     dao.guardarLibro(libro);
 
