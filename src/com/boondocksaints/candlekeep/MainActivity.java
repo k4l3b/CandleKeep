@@ -12,9 +12,11 @@ import com.boondocksaints.candlekeep.data.CandleKeepDAO;
 
 
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
@@ -135,6 +137,7 @@ public class MainActivity extends Activity {
 				
 				for (Categoria categoria : l.getCategorias()) {
 					listaCategorias.add(categoria.getDescripcion());
+					Log.d("Rampante",categoria.getDescripcion() );
 				}
 			
 				ArrayAdapter<String> adaptador_categorias = new ArrayAdapter<String>(MainActivity.this,						
@@ -148,8 +151,8 @@ public class MainActivity extends Activity {
 
 				LayoutParams param2 = new LayoutParams(lvwCategorias.getLayoutParams().width, 
 						100 * l.getCategorias().size());
-				lvwAutores.setLayoutParams(param);
-
+				lvwCategorias.setLayoutParams(param2);
+				//Toast.makeText(getApplicationContext(), Integer.toString(l.getCategorias().size()), Toast.LENGTH_LONG).show();
 				
 			}
 
@@ -179,6 +182,12 @@ public class MainActivity extends Activity {
 		ArrayAdapter<String> adaptador_libros = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listaLibros);	        
 		adaptador_libros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnLibros.setAdapter(adaptador_libros);
+		
+		etxIsbn.setEnabled(false);
+		etxCantHojas.setEnabled(false);
+		etxPubDate.setEnabled(false);
+		etxTitulo.setEnabled(false);
+		
 	
 	}
 
