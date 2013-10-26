@@ -59,7 +59,7 @@
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="250dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,14 +137,14 @@
                     android:id="@+id/lblCategorias"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:layout_gravity="top|center_vertical"
                     android:text="@string/txtCategorias"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <ListView
                     android:id="@+id/lvwCategorias"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
                     android:layout_weight="1" >
                 </ListView>
             </LinearLayout>
