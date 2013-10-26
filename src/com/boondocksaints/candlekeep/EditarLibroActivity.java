@@ -24,6 +24,8 @@ public class EditarLibroActivity extends Activity {
 	private EditText etxCantHojas;
 	private Button buttonGuardar;
 	private Button buttonCancelar;
+	private Button buttonAsignarAutores;
+	private Button buttonAsignarCategorias;
 	
 	private CandleKeepDAO dao;
 	
@@ -37,6 +39,8 @@ public class EditarLibroActivity extends Activity {
 		this.etxCantHojas = (EditText) findViewById(R.id.editarLibro_etxCantHojas);
 		this.buttonGuardar = (Button) findViewById(R.id.editarLibro_buttonGuardar);
 		this.buttonCancelar = (Button) findViewById(R.id.editarLibro_buttonCancelar);
+		this.buttonAsignarAutores = (Button) findViewById(R.id.editarLibro_buttonAsignarAutores);
+		this.buttonAsignarCategorias = (Button) findViewById(R.id.editarLibro_buttonAsignarCategorias);
 	}
 	
 	private void asignarListeners()

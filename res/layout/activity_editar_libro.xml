@@ -103,5 +103,20 @@
         android:ems="10"
         android:inputType="number" />
 
+    <Button
+        android:id="@+id/editarLibro_buttonAsignarCategorias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editarLibro_etxCantHojas"
+        android:text="@string/txtCategorias" />
+
+    <Button
+        android:id="@+id/editarLibro_buttonAsignarAutores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editarLibro_etxCantHojas"
+        android:layout_below="@+id/editarLibro_etxCantHojas"
+        android:text="@string/txtAutores" />
 
 </RelativeLayout>

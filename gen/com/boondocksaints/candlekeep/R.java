@@ -25,11 +25,13 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f08000a;
-        public static final int action_settings=0x7f08001c;
-        public static final int btnBrrLibro=0x7f08001b;
-        public static final int btnEdtLibro=0x7f08001a;
-        public static final int btnNvoLibro=0x7f080019;
+        public static final int LinearLayout1=0x7f08000c;
+        public static final int action_settings=0x7f08001e;
+        public static final int btnBrrLibro=0x7f08001d;
+        public static final int btnEdtLibro=0x7f08001c;
+        public static final int btnNvoLibro=0x7f08001b;
+        public static final int editarLibro_buttonAsignarAutores=0x7f08000b;
+        public static final int editarLibro_buttonAsignarCategorias=0x7f08000a;
         public static final int editarLibro_buttonCancelar=0x7f080001;
         public static final int editarLibro_buttonGuardar=0x7f080000;
         public static final int editarLibro_etxCantHojas=0x7f080009;
@@ -40,20 +42,20 @@ public final class R {
         public static final int editarLibro_textView2=0x7f080004;
         public static final int editarLibro_textView3=0x7f080006;
         public static final int editarLibro_textView4=0x7f080008;
-        public static final int etxCantHojas=0x7f080014;
-        public static final int etxIsbn=0x7f08000d;
-        public static final int etxPubDate=0x7f080012;
-        public static final int etxTitulo=0x7f08000f;
-        public static final int lblAutores=0x7f080015;
-        public static final int lblCategorias=0x7f080017;
-        public static final int lblIsbn=0x7f08000c;
-        public static final int lvwAutores=0x7f080016;
-        public static final int lvwCategorias=0x7f080018;
-        public static final int scrollView1=0x7f080010;
-        public static final int spnLibros=0x7f08000b;
-        public static final int textView2=0x7f08000e;
-        public static final int textView3=0x7f080011;
-        public static final int textView4=0x7f080013;
+        public static final int etxCantHojas=0x7f080016;
+        public static final int etxIsbn=0x7f08000f;
+        public static final int etxPubDate=0x7f080014;
+        public static final int etxTitulo=0x7f080011;
+        public static final int lblAutores=0x7f080017;
+        public static final int lblCategorias=0x7f080019;
+        public static final int lblIsbn=0x7f08000e;
+        public static final int lvwAutores=0x7f080018;
+        public static final int lvwCategorias=0x7f08001a;
+        public static final int scrollView1=0x7f080012;
+        public static final int spnLibros=0x7f08000d;
+        public static final int textView2=0x7f080010;
+        public static final int textView3=0x7f080013;
+        public static final int textView4=0x7f080015;
     }
     public static final class layout {
         public static final int activity_editar_libro=0x7f030000;
