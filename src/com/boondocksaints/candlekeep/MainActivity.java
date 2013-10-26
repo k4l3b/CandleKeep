@@ -115,20 +115,41 @@ public class MainActivity extends Activity {
 				//Toast.makeText(getApplicationContext(), Integer.toString(l.getAutores().size()), Toast.LENGTH_LONG).show();
 			
 				
+				//Listamos los autores del libro seleccionado.
+				//TODO: Agregar renglon complejo
 				List<String> listaAutores = new ArrayList<String>();
 				
 				for (Autor autor : l.getAutores()) {
 					listaAutores.add(autor.getNombre());
 					
 				}
-				
-				 
-				
+			
 				ArrayAdapter<String> adaptador_autores = new ArrayAdapter<String>(MainActivity.this,						
 						android.R.layout.simple_list_item_1,listaAutores);
 
 				lvwAutores.setAdapter(adaptador_autores);
+
+				//Listamos las categorias del libro seleccionado
+				//TODO: Agregar renglon complejo
+				List<String> listaCategorias = new ArrayList<String>();
 				
+				for (Categoria categoria : l.getCategorias()) {
+					listaCategorias.add(categoria.getDescripcion());
+				}
+			
+				ArrayAdapter<String> adaptador_categorias = new ArrayAdapter<String>(MainActivity.this,						
+						android.R.layout.simple_list_item_1,listaCategorias);
+
+				lvwCategorias.setAdapter(adaptador_categorias);
+
+				LayoutParams param = new LayoutParams(lvwAutores.getLayoutParams().width, 
+					100 * l.getAutores().size());
+				lvwAutores.setLayoutParams(param);
+
+				LayoutParams param2 = new LayoutParams(lvwCategorias.getLayoutParams().width, 
+						100 * l.getCategorias().size());
+				lvwAutores.setLayoutParams(param);
+
 				
 			}
 
@@ -154,10 +175,6 @@ public class MainActivity extends Activity {
 			listaLibros.add(libro.getTitulo());
 			
 		}
-		LayoutParams param = new LayoutParams(lvwAutores.getLayoutParams().width, 
-				150 * libros.size());
-		lvwAutores.setLayoutParams(param);
-		
 		 
 		ArrayAdapter<String> adaptador_libros = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listaLibros);	        
 		adaptador_libros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
