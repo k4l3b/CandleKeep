@@ -21,5 +21,11 @@
     <string name="strErrorFechaPublicacion">You must set a publish date for the book.</string>
     <string name="strErrorCantPaginas">You must set page count for the book.</string>
     <string name="strErrorSelLibro">You must select a book for edition.</string>
-    
+    <string name="title_activity_asignar_autores">AsignarAutoresActivity</string>
+    <string name="txtAdminAutores">Manage Authors</string>
+    <string name="txtAdminCategorias">Manage Categories</string>
+    <string name="txtAgregar">Add</string>
+    <string name="txtQuitar">Remove</string>
+    <string name="title_activity_abmautores">ABMAutoresActivity</string>
+
 </resources>

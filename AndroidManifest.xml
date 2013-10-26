@@ -26,6 +26,14 @@
             android:name="com.boondocksaints.candlekeep.EditarLibroActivity"
             android:label="@string/title_activity_editar_libro" >
         </activity>
+        <activity
+            android:name="com.boondocksaints.candlekeep.AsignarAutoresActivity"
+            android:label="@string/title_activity_asignar_autores" >
+        </activity>
+        <activity
+            android:name="com.boondocksaints.candlekeep.ABMAutoresActivity"
+            android:label="@string/title_activity_abmautores" >
+        </activity>
     </application>
 
 </manifest>

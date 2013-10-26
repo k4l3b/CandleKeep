@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".AsignarAutoresActivity" >
+
+    <Spinner
+        android:id="@+id/asignarAutores_spnAutors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/asignarAutores_buttonAgregarAutor"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/asignarAutores_spnAutors"
+        android:layout_below="@+id/asignarAutores_spnAutors"
+        android:text="@string/txtAgregar" />
+
+    <Button
+        android:id="@+id/asignarAutores_buttonAdministrarAutores"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/asignarAutores_buttonQuitarAutor"
+        android:layout_alignBottom="@+id/asignarAutores_buttonQuitarAutor"
+        android:layout_alignParentRight="true"
+        android:text="@string/txtAdminAutores" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/asignarAutores_buttonAgregarAutor"
+        android:layout_below="@+id/asignarAutores_buttonAgregarAutor" >
+    </ListView>
+
+    <Button
+        android:id="@+id/asignarAutores_buttonQuitarAutor"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/asignarAutores_spnAutors"
+        android:layout_toRightOf="@+id/asignarAutores_buttonAgregarAutor"
+        android:text="@string/txtQuitar" />
+
+</RelativeLayout>

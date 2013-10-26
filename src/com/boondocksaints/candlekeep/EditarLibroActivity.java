@@ -58,6 +58,16 @@ public class EditarLibroActivity extends Activity {
 				finish();
 			}
 		});
+		
+		this.buttonAsignarAutores.setOnClickListener(new Button.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intento = new Intent(EditarLibroActivity.this, AsignarAutoresActivity.class);
+				startActivity(intento);
+			}
+			
+		});
 	}
 	
 	private void inicializarDAO()
