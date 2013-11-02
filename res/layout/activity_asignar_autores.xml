@@ -35,7 +35,7 @@
         android:text="@string/txtAdminAutores" />
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/asignarAutores_listViewAsignados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/asignarAutores_buttonAgregarAutor"

@@ -1,17 +1,19 @@
 package com.boondocksaints.candlekeep;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.view.ContextMenu;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.Button;
+
+import com.boondocksaints.candlekeep.classes.Libro;
 
 public class AsignarAutoresActivity extends Activity {
 
 	private Button buttonAdministrarAutores;
+	
+	private Libro libro;
 	
 	private void obtenerInstancias()
 	{
@@ -30,6 +32,10 @@ public class AsignarAutoresActivity extends Activity {
 		});
 	}
 	
+	private void obtenerLibro()
+	{
+		
+	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

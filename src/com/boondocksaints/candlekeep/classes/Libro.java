@@ -6,11 +6,14 @@ package com.boondocksaints.candlekeep.classes;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * @author Kaleb
  *
  */
-public class Libro {
+public class Libro implements Parcelable {
 
 // Propiedades y Atributos ****************************************************
 	private String isbn;
@@ -91,5 +94,49 @@ public class Libro {
 		this.autores = autores;
 		this.categorias = categorias;
 	}
+	
+	public Libro(Parcel in)
+	{
+		// Constructor desde el Parcel
+		this.isbn = in.readString();
+		this.titulo = in.readString();
+		this.fechaPublicacion = in.readString();
+		this.cantidadPaginas = in.readInt();
+		
+		this.autores = new ArrayList<Autor>();
+		in.readList(this.autores, null);
+		
+		this.categorias = new ArrayList<Categoria>();
+		in.readList(this.categorias, null);
+		
+	}
+
+// Implementacion de Parcelable ***********************************************
+	
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.isbn);
+		dest.writeString(this.titulo);
+		dest.writeString(this.fechaPublicacion);
+		dest.writeInt(this.cantidadPaginas);
+		dest.writeList(this.autores);
+		dest.writeList(this.categorias);
+	}
+	
+	public static final Parcelable.Creator<Libro> CREATOR = new Parcelable.Creator<Libro>() {
+        public Libro createFromParcel(Parcel in) {
+            return new Libro(in);
+        }
+
+        public Libro[] newArray(int size) {
+            return new Libro[size];
+        }
+    };
+
 
 }

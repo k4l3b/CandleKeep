@@ -30,6 +30,7 @@ public final class R {
         public static final int asignarAutores_buttonAdministrarAutores=0x7f080002;
         public static final int asignarAutores_buttonAgregarAutor=0x7f080001;
         public static final int asignarAutores_buttonQuitarAutor=0x7f080003;
+        public static final int asignarAutores_listViewAsignados=0x7f080004;
         public static final int asignarAutores_spnAutors=0x7f080000;
         public static final int btnBrrLibro=0x7f080022;
         public static final int btnEdtLibro=0x7f080021;
@@ -53,7 +54,6 @@ public final class R {
         public static final int lblAutores=0x7f08001c;
         public static final int lblCategorias=0x7f08001e;
         public static final int lblIsbn=0x7f080013;
-        public static final int listView1=0x7f080004;
         public static final int lvwAutores=0x7f08001d;
         public static final int lvwCategorias=0x7f08001f;
         public static final int scrollView1=0x7f080017;
